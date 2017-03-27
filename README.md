@@ -1,6 +1,7 @@
 # ZF3-BarLogger, integrated [Tracy Dumper](https://github.com/nette/tracy) from [Nette framework](https://nette.org/) in Zend Framework 3 Developer Tools
-
 -----
+
+[![Latest Stable Version](https://poser.pugx.org/renat-magadiev/zf3-bar-logger/v/stable?format=flat-square)](https://packagist.org/packages/renat-magadiev/zf3-bar-logger) [![License](https://poser.pugx.org/renat-magadiev/zf3-bar-logger/license?format=flat-square)](https://packagist.org/packages/renat-magadiev/zf3-bar-logger)
 
 
 **BarLogger** is collector to zend developer tools bar some data do dump.
