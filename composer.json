@@ -1,0 +1,29 @@
+{
+  "name": "renat-magadiev/zf3-bar-logger",
+  "description": "Tracy dumper as logger to Zend Developer Tools in ZF3 Framework",
+  "type": "module",
+  "license": "MIT License",
+  "homepage": "https://github.com/renat-magadiev/zf3-bar-logger",
+  "keywords": [
+    "zf3",
+    "Zend Framework 3",
+    "Tracy"
+  ],
+  "authors": [
+    {
+      "name": "Renat Magadiev",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^5.5.9 || ^7.0",
+    "tracy/tracy": "2.4.*",
+    "zendframework/zend-developer-tools": "1.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "BarLogger\\": "src/"
+    },
+    "files": ["src/shortcuts.php"]
+  }
+}

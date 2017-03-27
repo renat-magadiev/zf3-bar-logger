@@ -1,0 +1,68 @@
+<?php if ($this->collector->getData()): ?>
+    <style>
+        <?php echo $this->collector->getCss() ?>
+        pre.tracy-dump {
+            background: #333;
+            color: #fff;
+        }
+        pre.tracy-dump div div {
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+        .tracy-dump-array, .tracy-dump-object {
+            color: #ff6565;
+        }
+        .tracy-dump-string {
+            color: #6d8aff;
+        }
+        #zend-developer-toolbar .zdt-toolbar-info .zdt-detail-value pre.tracy-dump {
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+    </style>
+    <div class="zdt-toolbar-entry">
+        <div class="zdt-toolbar-preview">
+            <img style="width: 20px;"
+                 src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNMjU2LDk2QzE0NC4zNDEsOTYsNDcuNTU5LDE2MS4wMjEsMCwyNTZjNDcuNTU5LDk0Ljk3OSwxNDQuMzQxLDE2MCwyNTYsMTYwYzExMS42NTYsMCwyMDguNDM5LTY1LjAyMSwyNTYtMTYwICAgQzQ2NC40NDEsMTYxLjAyMSwzNjcuNjU2LDk2LDI1Niw5NnogTTM4Mi4yMjUsMTgwLjg1MmMzMC4wODIsMTkuMTg3LDU1LjU3Miw0NC44ODcsNzQuNzE5LDc1LjE0OCAgIGMtMTkuMTQ2LDMwLjI2MS00NC42MzksNTUuOTYxLTc0LjcxOSw3NS4xNDhDMzQ0LjQyOCwzNTUuMjU3LDMwMC43NzksMzY4LDI1NiwzNjhjLTQ0Ljc4LDAtODguNDI4LTEyLjc0My0xMjYuMjI1LTM2Ljg1MiAgIGMtMzAuMDgtMTkuMTg4LTU1LjU3LTQ0Ljg4OC03NC43MTctNzUuMTQ4YzE5LjE0Ni0zMC4yNjIsNDQuNjM3LTU1Ljk2Miw3NC43MTctNzUuMTQ4YzEuOTU5LTEuMjUsMy45MzgtMi40NjEsNS45MjktMy42NSAgIEMxMzAuNzI1LDE5MC44NjYsMTI4LDIwNS42MTMsMTI4LDIyMWMwLDcwLjY5MSw1Ny4zMDgsMTI4LDEyOCwxMjhjNzAuNjkxLDAsMTI4LTU3LjMwOSwxMjgtMTI4ICAgYzAtMTUuMzg3LTIuNzI1LTMwLjEzNC03LjcwMy00My43OTlDMzc4LjI4NSwxNzguMzksMzgwLjI2NiwxNzkuNjAyLDM4Mi4yMjUsMTgwLjg1MnogTTI1NiwyMDVjMCwyNi41MS0yMS40OSw0OC00OCw0OCAgIHMtNDgtMjEuNDktNDgtNDhzMjEuNDktNDgsNDgtNDhTMjU2LDE3OC40OSwyNTYsMjA1eiIgZmlsbD0iI2NhY2FjYSIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="/>
+            <span class="zdt-toolbar-info">
+            Dumps
+        </span>
+        </div>
+        <?php ob_start(); ?>
+        <div class="zdt-toolbar-detail tracy-inner tracy-DumpPanel">
+            <?php foreach ($this->collector->getData() as $item): ?>
+                <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label"><?php echo $item['title'] ?></span>
+                <span class="zdt-detail-value">
+                    <?php echo $item['dump'] ?>
+                </span>
+            </span>
+            <?php endforeach; ?>
+        </div>
+        <?php $content = ob_get_clean(); ?>
+        <?php echo $content ?>
+    </div>
+    <script>
+        <?php echo $this->collector->getJs() ?>
+
+        (function () {
+            Tracy.Dumper.init(true);
+
+            var elements = document.querySelectorAll('.zdt-toolbar-entry');
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].addEventListener('click', (function (event) {
+                    var detail = event.currentTarget.querySelector('.zdt-toolbar-detail');
+
+                    if (detail.style.display === 'block') {
+                        detail.removeAttribute("style")
+                    } else {
+                        detail.style.display = 'block';
+                        detail.style.background = '#333';
+                        detail.style.boxShadow = 'rgba(0, 0, 0, 0.75) 0 0 7px';
+                    }
+                }));
+            }
+        })();
+
+    </script>
+<?php endif; ?>
